@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ID Verification</title>
+  <style>
+    /* Basic styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #f0f0f0;
+      border-radius: 8px;
+      padding: 20px;
+      width: 400px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    .button {
+      position: relative;
+      overflow: hidden;
+      height: 3rem;
+      padding: 0 2rem;
+      border-radius: 1.5rem;
+      background: #6bde8f; /* Updated to yellow-green gradient */
+      background-size: 400%;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    .button:hover::before {
+      transform: scaleX(1);
+    }
+
+    .button-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .button::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: scaleX(0);
+      transform-origin: 0 50%;
+      width: 100%;
+      height: inherit;
+      border-radius: inherit;
+      background: linear-gradient(
+        82.3deg,
+        rgba(150, 233, 93, 1) 10.8%,
+        rgba(88, 238, 99, 1) 94.3%
+      );
+      transition: all 0.475s;
+    }
+
+    #result {
+      display: none;
+      margin-top: 20px;
+    }
+
+    #error-message, #success-message {
+      margin-top: 10px;
+    }
+
+    #error-message {
+      color: red;
+    }
+
+    #success-message {
+      color: green;
+    }
+
+    .id-badge {
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      text-align: left;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .id-badge img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 1px solid #ddd;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+
+    .id-badge .details {
+      flex-grow: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>ID Verification</h2>
+    <input type="text" id="inputId" placeholder="Enter Employee ID">
+    <button class="button" onclick="verifyId()"><span class="button-content">Verify</span></button>
+    <p id="error-message"></p>
+    <p id="success-message"></p>
+
+    <div id="result">
+      <div class="id-badge">
+        <img id="employeePhoto" src="" alt="Employee Photo">
+        <div class="details">
+          <p><strong>Name:</strong> <span id="employeeName"></span></p>
+          <p><strong>ID:</strong> <span id="employeeId"></span></p>
+          <p><strong>Surname:</strong> <span id="employeeSurname"></span></p>
+          <p><strong>Status:</strong> <span id="employeeStatus"></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const employeeData = {
+      1: {
+        name: "Test Johny",
+        id: 1,
+        surname: "JOHNY TESTING",
+        status: "ACTIVE",
+        photo: "https://yourimagelink.com/image.png" // Replace with actual photo URL
+     }
+    };
+
+    function verifyId() {
+      const inputId = parseInt(document.getElementById("inputId").value);
+      const resultDiv = document.getElementById("result");
+      const errorMessage = document.getElementById("error-message");
+      const successMessage = document.getElementById("success-message");
+      const photo = document.getElementById("employeePhoto");
+
+      if (employeeData.hasOwnProperty(inputId)) {
+        const employee = employeeData[inputId];
+        document.getElementById("employeeName").textContent = employee.name;
+        document.getElementById("employeeId").textContent = employee.id;
+        document.getElementById("employeeSurname").textContent = employee.surname;
+        document.getElementById("employeeStatus").textContent = employee.status;
+        photo.src = employee.photo;
+
+        resultDiv.style.display = "block";
+        errorMessage.textContent = "";
+        successMessage.textContent = "ID verified successfully. Identity confirmed.";
+      } else {
+        resultDiv.style.display = "none";
+        errorMessage.textContent = "No employee is associated with this ID.";
+        successMessage.textContent = "";
+      }
+    }
+  </script>
+</body>
+</html>
+
