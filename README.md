@@ -9,5 +9,9 @@ We've implemented this service to fight against identity theft, impersonation an
 2. Scroll down to the ID Verification box.
 3. Input the employee's or volunteer's ID*.
 
+The HTML code/file comes with a test employee. His ID is 1.
+
+To add more employees/volunteers you need to edit the code and add them manually.
+
 
 *If the ID is valid, employee or volunteer information and details will show, else, the ID is not valid and therefore needs to be reported to our Support Team.
