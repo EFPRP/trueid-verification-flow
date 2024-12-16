@@ -5,7 +5,9 @@ The European Fire Prevention & Rural Preservation Organization has developped a 
 
 We've implemented this service to fight against identity theft, impersonation and fraud. This service is free to use. Here are the instructions:
 
-Access the EFPRP TrueID Verification™ Flow website.
-Scroll down to the ID Verification box.
-Input the employee's or volunteer's ID*.
-If the ID is valid, employee or volunteer information and details will show, else, the ID is not valid and therefore needs to be reported to our Support Team.
+1. Access the EFPRP TrueID Verification™ Flow website.
+2. Scroll down to the ID Verification box.
+3. Input the employee's or volunteer's ID*.
+
+
+*If the ID is valid, employee or volunteer information and details will show, else, the ID is not valid and therefore needs to be reported to our Support Team.
